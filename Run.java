@@ -32,7 +32,7 @@ class Run
                 if(e.getKeyChar()=='e' && r>0)r-=15;
                 if(e.getKeyChar()=='r' && r<255)r+=15;
                 if(e.getKeyChar()=='v' && b>0)b-=15;
-                if(e.getKeyChar()=='b' && b<255)b+=15;
+                if(e.getKeyChar()=='b' && b<255)b+=15;              // UI IN
                 if(e.getKeyChar()=='f' && g>0)g-=15;
                 if(e.getKeyChar()=='g' && g<255)g+=15;
                 if(e.getKeyChar()=='p')polygon=!polygon;
@@ -54,7 +54,7 @@ class Run
                     {
                         gg.setColor(balls[i].c);
                         gg.fillOval(balls[i].x,balls[i].y,10,10);
-                        balls[i].update();
+                        balls[i].update();                                  // changing color component value based on (x,y)
                         balls[i].c=new Color((int)(balls[i].x*((double)r/d.width)),(int)(balls[i].y*((double)g/d.height)),b);
                         e=balls[i].vicinity(balls,max,i);
                         c=0;
@@ -75,7 +75,7 @@ class Run
                                 y[c]=balls[e.get(c)].y+5;
                                 c++;
                             }
-                            x[e.size()]=balls[i].x+5;
+                            x[e.size()]=balls[i].x+5;            // drawing lines default, if selected -> polygon, heavypolygon.
                             y[e.size()]=balls[i].y+5;
                             gg.setColor(new Color(balls[i].c.getRed(),balls[i].c.getGreen(),balls[i].c.getBlue(),130));
                             gg.fillPolygon(x,y,e.size()+1);
@@ -128,7 +128,7 @@ class Run
         {
             @Override
             public void run()
-            {
+            {                                       //initialize.
                 max=Integer.parseInt(JOptionPane.showInputDialog(window,"Enter the minimum length for connection between balls :","Question",JOptionPane.QUESTION_MESSAGE));
                 balls=new Ball[Integer.parseInt(JOptionPane.showInputDialog(window,"Enter the number of balls :","Question",JOptionPane.QUESTION_MESSAGE))];
                 for(int i=0;i<balls.length;i++){balls[i]=new Ball(gen(d.width),gen(d.height),new Color(gen(gen(0,128),gen(128,255)),gen(gen(0,128),gen(128,255)),gen(gen(0,128),gen(128,255))),gen(1,-1),gen(1,-1),gen(5),gen(5),d);}
