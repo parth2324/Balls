@@ -1,4 +1,6 @@
-Run the .java after compiling it, and do as the program asks :
+Run the Run.java after compiling it (CMD compilation -> include Ball.java), and Enter as the program asks :
+--minimum length for connection.
+--no. of balls.
 UI :
 + -> speed increase.
 - -> speed decrease.
